@@ -1,0 +1,23 @@
+{
+  "name": "cerebral-module-entities",
+  "version": "0.1.0",
+  "description": "A Cerebral module handling server side entities",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cerebral/cerebral-module-entities.git"
+  },
+  "author": "Christian Alfoni",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cerebral/cerebral-module-entities/issues"
+  },
+  "homepage": "https://github.com/cerebral/cerebral-module-entities#readme",
+  "dependencies": {
+    "cerebral-url-scheme-compiler": "^0.3.7",
+    "uuid": "^2.0.1"
+  }
+}

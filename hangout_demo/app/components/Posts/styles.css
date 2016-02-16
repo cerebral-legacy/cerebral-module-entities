@@ -1,0 +1,45 @@
+.table {
+  padding: 10px;
+  border: 2px solid #333;
+  border-radius: 3px;
+}
+
+.row {
+  display: flex;
+  flex-direction: column;
+  background-color: #FAFAFA;
+  margin-bottom: 3px;
+  padding: 5px;
+  cursor: pointer;
+}
+
+.selectedRow {
+  composes: row;
+  background-color: rgba(0,255,0,0.2);
+}
+
+.post {
+  display: flex;
+  flex-direction: row;
+  flex: 1;
+}
+
+.cell {
+  flex: 1;
+}
+
+.postInfo {
+  flex: 1;
+}
+
+.postComments {
+  flex: 1;
+}
+
+.topBarWrapper {
+  display: flex;
+}
+
+.topBarWrapper div {
+  flex: 1;
+}
