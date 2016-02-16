@@ -4,7 +4,8 @@
   "description": "A Cerebral module handling server side entities",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "npm run lint",
+    "lint": "standard *.js core/*.js helpers/*.js"
   },
   "repository": {
     "type": "git",
@@ -19,5 +20,8 @@
   "dependencies": {
     "cerebral-url-scheme-compiler": "^0.3.7",
     "uuid": "^2.0.1"
+  },
+  "devDependencies": {
+    "standard": "^6.0.5"
   }
 }

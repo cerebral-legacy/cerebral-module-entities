@@ -1,18 +1,16 @@
-var getCompiler = require('cerebral-url-scheme-compiler/get');
+var getCompiler = require('cerebral-url-scheme-compiler/get')
 
-function remove(entityType, valuePath) {
+function remove (entityType, valuePath) {
+  var getValue = getCompiler(valuePath)
 
-  var getValue = getCompiler(valuePath);
-
-  function action(args) {
-    var value = getValue(args);
-    args.modules['cerebral-module-entities'].state.unset([entityType, value]);
+  function action (args) {
+    var value = getValue(args)
+    args.modules['cerebral-module-entities'].state.unset([entityType, value])
   }
 
-  action.displayName = 'entities.removeEntity (' + entityType + ')';
+  action.displayName = 'entities.removeEntity (' + entityType + ')'
 
-  return action;
-
+  return action
 }
 
-export default remove;
+export default remove

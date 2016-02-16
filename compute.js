@@ -1,23 +1,21 @@
-function compute(entityTypePath, uuidPath, relationships) {
+function compute (entityTypePath, uuidPath, relationships) {
+  entityTypePath = typeof entityTypePath === 'string' ? entityTypePath.split('.') : entityTypePath
 
-  entityTypePath = typeof entityTypePath === 'string' ? entityTypePath.split('.') : entityTypePath;
-
-  function computed(get) {
-
+  function computed (get) {
     var getEntity = function (uuid) {
-      var ensuredUuid = uuid;
+      var ensuredUuid = uuid
 
-      var uuidById = get([entityTypePath[0], 'ids', entityTypePath[1], uuid]);
+      var uuidById = get([entityTypePath[0], 'ids', entityTypePath[1], uuid])
       if (uuidById) {
-        ensuredUuid = uuidById;
+        ensuredUuid = uuidById
       }
 
-      var entity = get(entityTypePath.concat(ensuredUuid));
+      var entity = get(entityTypePath.concat(ensuredUuid))
 
       if (!entity) {
         return {
           id: uuidById ? uuid : uuidById,
-          uuid: uuidById ? uuidById : uuid,
+          uuid: uuidById || uuid,
           $notFound: true
         }
       }
@@ -29,40 +27,39 @@ function compute(entityTypePath, uuidPath, relationships) {
               return get(relationships[key]({
                 isRelationship: true,
                 uuid: uuid
-              }));
-            });
+              }))
+            })
           } else if (relationships[key]) {
             newEntity[key] = get(relationships[key]({
               isRelationship: true,
               uuid: entity[key]
-            }));
+            }))
           } else {
-            newEntity[key] = entity[key];
+            newEntity[key] = entity[key]
           }
 
-          return newEntity;
-        }, {});
+          return newEntity
+        }, {})
       }
-      return entity;
+      return entity
     }
 
-    var uuid;
+    var uuid
     if (uuidPath.isRelationship) {
-      uuid = uuidPath.uuid;
+      uuid = uuidPath.uuid
     } else {
-      uuid = get(uuidPath);
+      uuid = get(uuidPath)
     }
 
-    if (Array.isArray(uuid)) {
-      return uuid.map(getEntity);
+    if (Array.isArray(uuid)) {
+      return uuid.map(getEntity)
     }
 
-    return uuid ? getEntity(uuid) : null;
+    return uuid ? getEntity(uuid) : null
   }
 
-  computed.computedRef = JSON.stringify(arguments);
-  return computed;
-
+  computed.computedRef = JSON.stringify(arguments)
+  return computed
 }
 
-export default compute;
+module.exports = compute
