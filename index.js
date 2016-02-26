@@ -1,7 +1,7 @@
 module.exports = function Entities (options) {
   options = options || {}
 
-  return (module) => {
+  return function init (module) {
     module.alias('cerebral-module-entities')
 
     module.addState({
