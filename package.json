@@ -1,12 +1,11 @@
 {
   "name": "cerebral-module-entities",
-  "version": "0.0.0-semantically-released",
+  "version": "0.1.3",
   "description": "A Cerebral module handling server side entities",
   "main": "index.js",
   "scripts": {
     "test": "npm run lint",
-    "lint": "standard *.js core/*.js helpers/*.js",
-    "semantic-release": "semantic-release pre && npm publish && semantic-release post"
+    "lint": "standard *.js core/*.js helpers/*.js"
   },
   "repository": {
     "type": "git",
@@ -24,22 +23,12 @@
   },
   "devDependencies": {
     "commitizen": "^2.5.0",
-    "conventional-changelog": "0.0.17",
     "cz-customizable": "^2.7.1",
-    "ghooks": "^1.0.3",
-    "semantic-release": "^4.3.5",
-    "standard": "^6.0.5",
-    "validate-commit-msg": "^2.0.0"
+    "standard": "^6.0.5"
   },
   "config": {
     "commitizen": {
       "path": "node_modules/cz-customizable"
-    },
-    "ghooks": {
-      "commit-msg": "validate-commit-msg"
     }
-  },
-  "release": {
-    "analyzeCommits": "./sr-prerelease.js"
   }
 }
